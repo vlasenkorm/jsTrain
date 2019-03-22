@@ -19,7 +19,7 @@
     
     console.log(topRowKeyboardEng.charAt(0) + topRowKeyboardEng.charAt(lengthTopRowKeyEng - 1));
     console.log(typeof(lengthTopRowKeyEng));
-    console.log(midleRowKeyboardEng.charAt(0) + midleRowKeyboardEng.charAt(lengthMidRowKeyEng--));
+    console.log(midleRowKeyboardEng.charAt(0) + midleRowKeyboardEng.charAt(lengthMidRowKeyEng - 1));
     console.log(bottomRowKeyboardEng.charAt(0) + bottomRowKeyboardEng.charAt(lengthBotRowKeyEng - 1));
 
 //Task4
