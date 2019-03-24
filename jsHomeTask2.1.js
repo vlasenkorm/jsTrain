@@ -62,47 +62,60 @@ switch (ansverUser) {
     Если мест нигде нет, выводим сообщение alert('Мест нет!')*/
     
     //Task2.2
-    let ansverUser = prompt('Enter the number of group members', 1);
- 
-    if (ansverUser <= 0){
-        alert('Numbers are not positive ');
-    }
-            if ((+ansverUser ^ 0) !== +ansverUser){
-                alert('Number are not integer');
-            }
-        
-        let sizeGroupSharm = 15;
-        let sizeGroupHurgada = 25;
-        let sizeGroupTaba = 6;
-        var choice = false;
+    let sizeGroupSharm = 15;
+    let sizeGroupHurgada = 25;
+    let sizeGroupTaba = 6;
+    var choice = false;
+    let v = 1;
+  
     
-    if (sizeGroupSharm >= +ansverUser){
-        choice = confirm('Group Sharm have free place, does the user agree to be in this group?');
-        //alert(choice);
-        if (choice === true){
-            sizeGroupSharm = sizeGroupSharm - +ansverUser;
-        }
-    } 
-        
-    if ((choice === false) && (sizeGroupHurgada >= +ansverUser)){
-        choice =  confirm('Group Hurgada have free place, does the user agree to be in this group?');
-        //alert(choice);
-        if (choice === true){
-            sizeGroupHurgada = sizeGroupHurgada - +ansverUser;
-        }
-    }    
-        
-    if ((choice === false) && (sizeGroupTaba >= +ansverUser)){
-        choice =  confirm('Group Taba have free place, does the user agree to be in this group?');
-        //alert(choice);
-        if (choice === true){
-            sizeGroupTaba = sizeGroupTaba - +ansverUser;
-        }
-    }
+  
+  
+  while(v != 0) {
+  v = 0;
+  
+  var ansverUser = prompt('Enter the number of group members', 1);
+  
+  if (ansverUser <= 0){
+  alert('Numbers are not positive ');
+  v++;
+  }
+  if ((+ansverUser ^ 0) !== +ansverUser){
+    alert('Number are not integer');
+    v++;
+  }  
     
-    if (choice === false){
-        alert (`There are no places`);
+            
+  }        
+   
+  
+  if (sizeGroupSharm >= +ansverUser){
+    choice = confirm('Group Sharm have free place, does the user agree to be in this group?');
+    //alert(choice);
+    if (choice === true){
+        sizeGroupSharm = sizeGroupSharm - +ansverUser;
     }
-    alert (`Shaba = ${sizeGroupSharm} 
-    Hurgada = ${sizeGroupHurgada}
-    Taba = ${sizeGroupTaba}`);
+  } 
+    
+  if ((choice === false) && (sizeGroupHurgada >= +ansverUser)){
+    choice =  confirm('Group Hurgada have free place, does the user agree to be in this group?');
+    //alert(choice);
+    if (choice === true){
+        sizeGroupHurgada = sizeGroupHurgada - +ansverUser;
+    }
+  }    
+    
+  if ((choice === false) && (sizeGroupTaba >= +ansverUser)){
+    choice =  confirm('Group Taba have free place, does the user agree to be in this group?');
+    //alert(choice);
+    if (choice === true){
+        sizeGroupTaba = sizeGroupTaba - +ansverUser;
+    }
+  }
+  
+  if (choice === false){
+    alert (`There are no places`);
+  }
+  alert (`Shaba = ${sizeGroupSharm} 
+  Hurgada = ${sizeGroupHurgada}
+  Taba = ${sizeGroupTaba}`);
