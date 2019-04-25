@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+</head>
+
+<style>
+  .keyboard__btn{display:block;outline:0;padding:0;width:3.75rem;height:3.75rem;margin-right:.5rem;border:1px solid #bdbdbd;
+    border-radius:.125rem;background-color:transparent;font-size:1.3rem;-webkit-user-select:none;-moz-user-select:none;
+    -ms-user-select:none;user-select:none;color:#424242;cursor:default}
+ .keyboard__row{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;
+    justify-content:center;padding:.25rem}
+</style>
+
+<body>
+<!--Шаблон-->
+  <div id="keyboard-holder"></div>
+    <script type="text/template" id="keyboard-template">
+
+          <div class="keyboard"><%  line.forEach(ele => { %>
+       <div class="keyboard__row">
+              <%  liner[ele].forEach(elem => { %><button class="keyboard__btn"><%- elem %></button>
+           <% }); %> </div>   
+        <% }); %></div>
+
+  </script>
+
+  <script>
+    const keyboard = {    
+        
+    line:['firstLine','secondLine', 'thirdLine'],
+    
+    liner:{   firstLine: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+              secondLine: ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+              thirdLine: ['z', 'x', 'c', 'v', 'b', 'n', 'm'],},
+              // Data
+    };
+// Шаблонизатор LoDash
+    let tmpl = _.template(document.getElementById('keyboard-template').innerHTML);
+    document.getElementById('keyboard-holder').innerHTML = tmpl(keyboard);
+    
+  </script>
+
+</body>
+
+</html>
