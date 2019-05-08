@@ -1,0 +1,174 @@
+/*chekbox*/
+
+.slideThree {
+  width: 80px;
+  height: 20px;
+  background: rgb(226, 226, 226);
+  color: #000000;
+  margin: 20px auto;
+  position: relative;
+  
+  box-shadow: inset 0px 1px 1px #eee, 0px 2px 0px #424242;
+  }
+  
+
+body {
+  line-height:1
+}
+
+.panel{
+  -ms-flex-item-align:start;
+  align-self:flex-start;
+  width:25%;
+  padding:1rem .5rem;
+  border-radius:.25rem;
+  box-shadow:0 0 5px 5px rgba(0,0,0,.1)
+  }
+
+  .clock_panel{
+width: 50%;
+display:flex;
+  }
+
+.main{
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  -ms-flex-direction:column;
+  flex-direction:column;
+  -webkit-box-align:center;
+  -ms-flex-align:center;
+  align-items:center;
+  -webkit-box-pack:center;
+  -ms-flex-pack:center;
+  justify-content:center;
+  width:70%;
+  padding:0 1.5rem
+  }
+
+  .clock{
+    text-align:center
+    }
+
+   .clock__time{
+     font-size:2rem
+     }
+
+/*keyboard>>*/
+
+.keyboard{
+  margin-top:3rem
+  }
+
+.keyboard__row{
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack:center;
+  -ms-flex-pack:center;
+  justify-content:center;
+  padding:.25rem
+  }
+
+.keyboard__btn{
+  display:block;
+  outline:0;
+  padding:0;
+  width:3.75rem;
+  height:3.75rem;
+  margin-right:.5rem;
+  border:1px solid #bdbdbd;
+  border-radius:.125rem;
+  background-color:transparent;
+  font-size:1.3rem;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  color:#424242;
+  cursor:default
+}
+
+  .keyboard__btn:last-child{
+    margin-right:0
+  }
+  
+  .keyboard__btn--space{
+    width:20rem
+  }
+
+  .keyboard__btn--active{
+    border:1px solid transparent;
+    background-color:#03a9f4;
+    color:#fff
+  }
+
+  /*taimer*/
+
+  .lang-ctrls__body{
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack:justify;
+    -ms-flex-pack:justify;
+    justify-content:space-between
+  }
+
+  .lang-ctrls__btn{
+    padding:0;
+    outline:0;
+    width:5.25rem;
+    height:3.25rem;
+    border-radius:.5rem;
+    font-size:1.125rem;
+    color:#1b1616;text-transform:uppercase;
+    background-color:#eee;
+    box-shadow: inset 0px 1px 1px #eee, 0px 2px 0px #424242;
+
+    }
+    .lang-ctrls__btn--active{
+      background-color:#bdbdbd
+      }
+
+  .widget__heading{
+    font-size:1em;
+    margin-bottom:1rem;
+    text-align:center;
+    font-family: Arial;
+    }
+
+    .widget-divider{
+      border-top:1px solid #bdbdbd;
+      
+      margin-top:1.5rem
+      }
+
+
+
+.pressed {
+  margin: auto;
+  font-size: 32px;
+  height: 60px;
+  line-height: 60px;
+  width: 400px;
+  cursor: pointer;
+  background: #424242;
+  color: #eee;
+  display: flex;
+  justify-content: space-around;
+}
+.keyboard {
+  background: hsla(100, 50%, 50%, 0.1);
+}
+
+.clock__time {
+  font-family: monospace;
+  font-size:32px;
+  height:10px;
+}
+
+.panel {
+  width: 75%;
+}
