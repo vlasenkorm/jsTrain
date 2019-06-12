@@ -61,6 +61,7 @@ let userId = prompt('userID','5cdd99664b83e200144cb4f2');
         
         //data.forEach(element => {
         outputAll.textContent = JSON.stringify(data);    
+        console.log(JSON.stringify(data));
         //console.log(data);
         }) 
         .catch(error => {      // catch обрабатывает возможную ошибку запроса      
