@@ -23,9 +23,52 @@ btnRe.addEventListener('click', removeUser);
 btnUpdate.addEventListener('click',updateUser);
 btnId.addEventListener('click',getUserById);
 
+/*get input user ID*/
+function getInfo(id){
+    let acc ='';
+    let test = document.querySelectorAll(id);
+    test.forEach(el  =>{
+        acc += el.value;  
+    })
+  return acc;
+}
+
+function cleanInfo(id){
+    let test = document.querySelectorAll(id);
+    test.forEach(el  =>{
+        el.value = ''; 
+    })
+};
+
+
+
+function outputData(myObgect){ 
+        
+for (key in myObgect) {
+    console.log(myObgect[key].id, myObgect[key].name ,myObgect[key].age);
+   let p = document.createElement('div');
+        p.textContent = `|  Name : ${myObgect[key].name} |   Age : ${myObgect[key].age} | ID : ${myObgect[key].id}  `;
+        
+        outputAll.insertAdjacentElement("beforeEnd", p);
+         console.log(p); 
+        };
+};
+
+
+function outputDataOne(obje){ 
+        
+        console.log(obje.id, obje.name ,obje.age);
+       let p = document.createElement('div');
+            p.textContent = `|  Name : ${obje.name} |   Age : ${obje.age} | ID : ${obje.id}  `;
+            
+            outputAll.insertAdjacentElement("beforeEnd", p);
+             console.log(p); 
+            };
+
 //функция getAllUsers() - должна вернуть текущий список всех пользователей в БД.
 function getAllUsers(){
-    fetch('https://test-users-api.herokuapp.com/users')
+    
+fetch('https://test-users-api.herokuapp.com/users')
     
     .then(response => {     
         if (response.ok) return response.json();        
@@ -34,22 +77,25 @@ function getAllUsers(){
 
      .then(data => {         
         console.log("data inside then: ", data);    
+        outputAll.textContent = '';   
+        outputData(data.data);
         
-        outputAll.textContent = JSON.stringify(data);    
-        console.log(data);
-        }) 
+}) 
 
         .catch(error => {      // catch обрабатывает возможную ошибку запроса      
         console.error("Error: ", error);    
         });
+       
         };
         
 
        
         //функция getUserById(id) - должна вернуть пользователя с переданным id.
         function getUserById(){
-let userId = prompt('userID','5cdd99664b83e200144cb4f2');
-            fetch(`https://test-users-api.herokuapp.com/users/${userId}`)
+//let userId = prompt('userID','5cdd99664b83e200144cb4f2');
+       let userIdd = getInfo('.usersInputID');
+
+fetch(`https://test-users-api.herokuapp.com/users/${userIdd}`)
     
     .then(response => {     
         if (response.ok) return response.json();        
@@ -59,9 +105,10 @@ let userId = prompt('userID','5cdd99664b83e200144cb4f2');
      .then(data => {         
         console.log("data inside then: ", data);    
         
-        //data.forEach(element => {
-        outputAll.textContent = JSON.stringify(data);    
-        console.log(JSON.stringify(data));
+        outputAll.textContent = 'Get User';   
+        outputDataOne(data.data);
+        cleanInfo('.usersInputID');
+        
         //console.log(data);
         }) 
         .catch(error => {      // catch обрабатывает возможную ошибку запроса      
@@ -73,8 +120,8 @@ let userId = prompt('userID','5cdd99664b83e200144cb4f2');
         
         //функция addUser(name, age) - должна записывать в БД юзера с полями name и age.
        function addUser(){
-            let user_name = prompt('Name','Roman');
-            let user_age = prompt('Age','44');
+            let user_name = getInfo('.usersInputName');
+            let user_age = getInfo('.usersInputAge');
 
         fetch('https://test-users-api.herokuapp.com/users',{
             method :'Post',
@@ -89,43 +136,48 @@ let userId = prompt('userID','5cdd99664b83e200144cb4f2');
          }) 
     
          .then(data => {         
-            console.log("data inside then: ", data);    
-            outputAll.textContent = JSON.stringify(data);    
+            outputAll.textContent = 'Add';   
+        outputDataOne(data.data);   
             }) 
             .catch(error => {      // catch обрабатывает возможную ошибку запроса      
             console.error("Error: ", error);    
             });
+            cleanInfo('.usersInputName');
+            cleanInfo('.usersInputAge');
             };
 
        // функция removeUser(id) - должна удалять из БД юзера по указанному id.
 
        function removeUser(){
-           let userIDRe = prompt('userID','5cdd99664b83e200144cb4f2');
-        fetch(`https://test-users-api.herokuapp.com/users/${userIDRe}`,{method :'delete'})
+           //let userIDRe = prompt('userID','5cdd99664b83e200144cb4f2');
+           let userId = getInfo('.usersInputID');
+
+        fetch(`https://test-users-api.herokuapp.com/users/${userId}`,{method :'delete'})
     .then(response => {     
         if (response.ok) return response.json();        
         throw new Error("Error fetching data");   
      }) 
 
      .then(data => {         
-        console.log("data inside then: ", data);    
-        
-        outputAll.textContent = JSON.stringify(data);    
-        console.log(data);
+        outputAll.textContent = 'Remove';   
+        outputDataOne(data.data);
         }) 
+        
 
         .catch(error => {      // catch обрабатывает возможную ошибку запроса      
         console.error("Error: ", error);    
         });
+        cleanInfo('.usersInputID');
         };
        
         //функция updateUser(id, user) - должна обновлять данные пользователя по id. user это объект с новыми полями name и age.
         
         function updateUser(){
             
-            let userId = prompt('userID','5cdd99664b83e200144cb4f2');
-            let user_name = prompt('Name','Roman');
-            let user_age = prompt('Age','44'); 
+            //let userId = prompt('userID','5cdd99664b83e200144cb4f2');
+            let userId = getInfo('.usersInputID');
+            let user_name = getInfo('.usersInputName');
+            let user_age = getInfo('.usersInputAge'); 
            
             fetch(`https://test-users-api.herokuapp.com/users/${userId}`,{
                 method :'Put',
@@ -140,13 +192,14 @@ let userId = prompt('userID','5cdd99664b83e200144cb4f2');
          }) 
     
          .then(data => {         
-            console.log("data inside then: ", data);    
-            
-            outputAll.textContent = JSON.stringify(data);    
-            console.log(data);
+            outputAll.textContent = 'Update';   
+        outputDataOne(data.data);
             }) 
     
             .catch(error => {      // catch обрабатывает возможную ошибку запроса      
             console.error("Error: ", error);    
             });
+            cleanInfo('.usersInputID');
+            cleanInfo('.usersInputName');
+            cleanInfo('.usersInputAge');
             };

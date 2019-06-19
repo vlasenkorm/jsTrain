@@ -6,18 +6,34 @@ p {
   margin-top: 1rem;  
   font-size: 1.5rem;
 }
-
-.js-code{
- float: left;
-height:-webkit-fill-available;
+.btn{
+ width:20%;
+ margin-right:15px;
+ font-size:large;
+ height:30px;
 }
+
 
 .js-form-btn{
+text-align: left;
 border-bottom: 3px solid  #333333;
-margin-bottom:5px;
-padding:inherit;
+margin-bottom:25px;
+
+
 }
 
-.js-text-content{
- 
+.js-form-btn div{
+border :1px solid #6eacb1;
+margin-bottom:8px;
+padding:10px;
 }
+
+
+.js-text-content div{
+ border :2px solid #2a72c1;
+ text-align:justify;
+ background-color:#cfece3;
+ margin-bottom:4px;
+ padding:4px;
+
+};

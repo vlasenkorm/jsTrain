@@ -9,18 +9,40 @@
 
 <body>
   <div class='js-form-btn'>
+   <div> 
     <button id="js-btn-all" class="btn">getAllUsers()</button>
-    <button id="js-btn-id" class="btn">getUserById(id)</button>
-    <button id="js-btn-add" class="btn">addUser(name, age)</button>
-    <button id="js-btn-re" class="btn">removeUser(id)</button>
-    <button id="js-btn-update" class="btn">updateUser(id, user)</button>
+    <span>Get list all users</span>
+    </div>
+    <div>
+      <button id="js-btn-id" class="btn">getUserById(id)</button>
+      <input type="text" class = 'usersInputID' placeholder="ID">
+      <span>Get existing users by ID for example :5d079a494a1349001475f0d0</span>
+    </div>
+    <div>
+      <button id="js-btn-add" class="btn">addUser(name, age)</button>
+      <input type="text" class = 'usersInputName' placeholder="Name">
+      <input type="text" class = 'usersInputAge' placeholder="Age">
+      <span>Insert Name and Age for new user</span>
+    </div>
+    <div>
+      <button id="js-btn-re" class="btn">removeUser(id)</button>
+      <input type="text" class = 'usersInputID' placeholder="ID">
+      <span>Remove existing user by ID for example :5d079a494a1349001475f0d0</span>
+    </div>
+    <div>
+      <button id="js-btn-update" class="btn">updateUser(id, user)</button>
+      <input type="text" class = 'usersInputID' placeholder="ID">
+      <input type="text" class = 'usersInputName' placeholder="Name">
+      <input type="text" class = 'usersInputAge' placeholder="Age">
+      <span>Update existing user</span>
+    </div>
   </div>
+
   <div class='js-code'>
-      <p id="js-output-code">code data:</p>
+      <p id="js-output-code">Code data:</p>
   </div>
   <div class='js-text-content'>
-    <p id="js-output-text">async data will be shown hereasync data will be shown hereasync data will 
-      be shown hereasync data will be shown hereasync data will be shown hereasync data will be shown hereasync data will be shown here</p>
+    <p id="js-output-text"></p>
   </div>
 
 
